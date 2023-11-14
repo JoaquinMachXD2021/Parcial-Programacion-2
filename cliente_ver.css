@@ -1,0 +1,76 @@
+body {
+    background-color: #111; 
+    color: #fff; 
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background-color: #222; 
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333; 
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.item {
+    width: calc(25% - 20px);
+    box-sizing: border-box;
+    background-color: #333;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.price {
+    color: rgb(136, 13, 13);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.item:hover {
+    background-color: #555;
+    transform: scale(1.05);
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #222;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+img[alt="DOOM ERROR"] {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
