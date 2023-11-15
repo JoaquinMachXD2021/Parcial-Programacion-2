@@ -11,9 +11,12 @@
 
     header("Content-Type:application/json");
 
-    if(!isset($_POST["usuario"]) && !isset($_POST["clave"])) deliver_response(200,'Peticion mal formulada y acceso denegado', '');
+    if(!isset($_POST["usuario"]) || !isset($_POST["clave"])) deliver_response(200,'Peticion mal formulada y acceso denegado', '');
 
-    $query = 'SELECT rol FROM usuarios WHERE id='.$_POST["usuario"].' AND pass="'.$_POST["clave"].'"';
+    $usuario = mysqli_real_escape_string($conn, $_POST['usuario']);
+    $clave = mysqli_real_escape_string($conn, $_POST['clave']);
+
+    $query = "SELECT rol FROM usuarios WHERE correo='$usuario' AND pass='$clave'";
 
     $result = mysqli_query($conn, $query);
 
@@ -100,6 +103,26 @@
                 deliver_response(200,'Listar OK!', mysqli_fetch_assoc($result));
             else 
                 deliver_response(200,'Producto inexistente','');
+            
+        } 
+    }
+
+    //Listar todo
+    if(isset($_GET["list"])){
+        $query = "SELECT productos.id, productos.nombre as nombre, categoria_productos.nombre as categoria_nombre, precio, descripcion  FROM productos INNER JOIN categoria_productos ON productos.categoria_id = categoria_productos.id";
+
+        $output = array();
+        
+        if($result = mysqli_query($conn, $query)){
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_assoc($result)){
+                    array_push($output, $row);
+                }
+                deliver_response(200,'Listar OK!', $output);
+            }
+            
+            else 
+                deliver_response(200,'No hay productos','');
             
         } 
     }

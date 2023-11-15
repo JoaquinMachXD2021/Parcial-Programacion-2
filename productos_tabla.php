@@ -1,5 +1,6 @@
 <?php
 include('conexion.php');
+include('chequeo_sesion.php');
 include("barra_lateral.php");
 ?>
 <html>

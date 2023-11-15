@@ -1,42 +1,14 @@
 <?php
-function conectarBaseDeDatos() {
-    $servername = "127.0.0.1";
-    $username = "root";
-    $password = "";
-    $dbname = "empresa";
+include("conexion.php");
+include('chequeo_sesion.php');
+include("ws_controller.php");
 
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+$ws_controller = new ws_controller();
 
-    if (!$conn) {
-        die("La conexión a la base de datos falló: " . mysqli_connect_error());
-    }
+$ws_controller -> usuario = $_SESSION['usuarioingresando'];
+$ws_controller -> clave = $_SESSION['clave'];
 
-    return $conn;
-}
-
-function obtenerProductosYCategorias($conn) {/*
-    $sql = "SELECT productos.*, categoria_productos.nombre AS categoria_nombre 
-            FROM productos 
-            INNER JOIN categoria_productos ON productos.categoria_id = categoria_productos.id";
-    $result = mysqli_query($conn, $sql);
-*/
-    $url="http://{ip_webservice}/parcial2/ws/menu.php";                                                                                                                    $json=file_get_contents($url);
-    $datos=json_decode($json,true)["datos"];
-    $productos = array();
-    $productos = $datos;
-
-    /*if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $productos[] = $row;
-        }
-    }*/
-
-    return $productos;
-}
-
-$conn = conectarBaseDeDatos();
-
-$productos = obtenerProductosYCategorias($conn);
+$productos = $ws_controller -> listarProductosConCategoria();
 
 mysqli_close($conn);
 ?>
@@ -66,6 +38,7 @@ mysqli_close($conn);
     </div>
 
     <section class="menu">
+        
         <?php foreach ($productos as $producto) : ?>
             <div class="item">
                 <h2><?= $producto['nombre'] ?></h2>
