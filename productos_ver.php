@@ -1,21 +1,15 @@
 <?php 
-include("conexion.php");
-include('chequeo_sesion.php');
 include("productos_tabla.php");
 $pagina = $_GET['pag'];
 $id = $_GET['id'];
 
-$querybuscar = mysqli_query($conn, "SELECT pro.id,pro.nombre,descripcion,precio,cat.nombre as categoria 
-FROM productos pro, categoria_productos cat where pro.categoria_id=cat.id and pro.id = '$id'");
- 
-while($mostrar = mysqli_fetch_array($querybuscar))
-{
-	$proid 	= $mostrar['id'];
-	$pronom	= $mostrar['nombre'];
-	$prodes	= $mostrar['descripcion'];
-	$propre	= $mostrar['precio'];
-	$procat	= $mostrar['categoria'];
-}
+$mostrar = $ws_controller -> obtenerProducto($id);
+if(count($mostrar) == 0) die();
+$proid 	= $mostrar['id'];
+$pronom	= $mostrar['nombre'];
+$prodes	= $mostrar['descripcion'];
+$propre	= $mostrar['precio'];
+$procat	= $mostrar['categoria_nombre'];
 ?>
 <html>
 <body>
@@ -42,6 +36,10 @@ while($mostrar = mysqli_fetch_array($querybuscar))
 <tr> 
 <td><b>Categoría: </b></td>
 <td><?php echo $procat;?></td>
+</tr>
+<td><b>Imagen: </b></td>
+<td>
+	<img src="images/productos/<?=$id?>.png" onclick="window.open('images/productos/<?=$id?>.png','_blank')"></td>
 </tr>
 
 <tr>

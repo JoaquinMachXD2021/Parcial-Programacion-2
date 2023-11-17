@@ -1,26 +1,22 @@
-<?php 
-include("conexion.php");
-include('chequeo_sesion.php');
+<?php
 include("productos_tabla.php");
 
 $pagina = $_GET['pag'];
 $id = $_GET['id'];
 
-$querybuscar = mysqli_query($conn, "SELECT * FROM productos WHERE id = '$id'");
- 
-while($mostrar = mysqli_fetch_array($querybuscar))
-{	
+$mostrar = $ws_controller -> obtenerProducto($id);
+
+if(count($mostrar)== 0) die('');
 	$proid 		= $mostrar['id'];
 	$pronom 	= $mostrar['nombre'];
 	$prodes 	= $mostrar['descripcion'];
 	$propre 	= $mostrar['precio'];
 	$procat 	= $mostrar['categoria_id'];
-}
 ?>
 <html>
 <body>
 <div class="caja_popup2">
-<form class="contenedor_popup" method="POST">
+<form class="contenedor_popup" method="POST" enctype="multipart/form-data">
 <table>
 <tr><th colspan="2">Modificar producto</th></tr>	
 <tr> 
@@ -61,6 +57,11 @@ echo '<option value="'.$mostrarcat['id'].'">' .$mostrarcat['nombre']. '</option>
 
 </select>
 </td>
+<tr> 
+<td><b>Imagen: </b></td>
+<td>
+	<input class="CajaTexto" type="file" name="fileimg"></td>
+</tr>
 </tr>
 <tr>
 <td colspan="2" >
@@ -77,15 +78,21 @@ echo '<option value="'.$mostrarcat['id'].'">' .$mostrarcat['nombre']. '</option>
 <?php
 	
 if(isset($_POST['btnregistrar']))
-{    
-	$proid1 	= $_POST['txtid'];
-	$pronom1 	= $_POST['txtnom'];
-	$prodes1	= $_POST['txtdes'];
-	$propre1 	= $_POST['txtpre'];
-	$procat1 	= $_POST['txtcat'];
-      
-$querymodificar = mysqli_query($conn, "UPDATE productos SET nombre='$pronom1',descripcion='$prodes1',precio='$propre1',categoria_id='$procat1' WHERE id = '$proid1'");
-echo "<script>window.location= 'productos_tabla.php?pag=$pagina' </script>";
+{
+	 
+	$id 	= $_POST['txtid'];
+	$nombre 	= $_POST['txtnom'];
+	$descripcion	= $_POST['txtdes'];
+	$precio 	= $_POST['txtpre'];
+	$categoria 	= $_POST['txtcat'];
+
+	$ext = pathinfo($_FILES['fileimg']['name'], PATHINFO_EXTENSION);
+	
+	move_uploaded_file($_FILES['fileimg']['tmp_name'], "images/productos/". $id.".$ext");
+
+	$respuesta = $ws_controller -> editarProducto($id, $nombre, $precio, $descripcion, $categoria);
+
+	echo "<script>window.location= 'productos_tabla.php?pag=$pagina' </script>";
     
 }
 ?>

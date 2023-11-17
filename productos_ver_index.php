@@ -23,12 +23,6 @@
     <h1>Lista de Productos</h1>
 
     <?php
-    $host 	= '127.0.0.1';
-    $nom 	= 'root';
-    $pass 	= '';
-    $db 	= 'empresa';
-
-    $conn = mysqli_connect($host, $nom, $pass, $db);
 
     if (!$conn) 
     {

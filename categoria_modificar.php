@@ -1,6 +1,4 @@
-<?php 
-include('conexion.php');
-include('chequeo_sesion.php');
+<?php
 include("categoria_tabla.php");
 
 $pagina = $_GET['pag'];

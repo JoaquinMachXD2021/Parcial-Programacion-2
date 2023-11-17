@@ -5,12 +5,7 @@ include("ws_controller.php");
 
 $ws_controller = new ws_controller();
 
-$ws_controller -> usuario = $_SESSION['usuarioingresando'];
-$ws_controller -> clave = $_SESSION['clave'];
-
-$productos = $ws_controller -> listarProductosConCategoria();
-
-mysqli_close($conn);
+$productos = $ws_controller -> obtenerOfertas();
 ?>
 
 <!DOCTYPE html>
@@ -34,15 +29,15 @@ mysqli_close($conn);
         <a href="cliente_ver.php"> Inicio</a>
         <a href="#"> Locales</a>
         <a href="informacion_ver.php"> Información</a>
-        <a href="productos_tabla.php"> Volver</a>
+        <a href="cerrar_sesion.php"> Cerrar sesión</a>
     </div>
 
     <section class="menu">
         
-        <?php foreach ($productos as $producto) : ?>
+        <?php foreach ($productos as $cat) foreach($cat['productos'] as $producto): ?>
             <div class="item">
                 <h2><?= $producto['nombre'] ?></h2>
-                <p>Categoría: <?= $producto['categoria_nombre'] ?></p>
+                <p>Categoría: <?= $cat['nombre'] ?></p>
                 <p>Descripción: <?= $producto['descripcion'] ?></p>
                 <p class="price">$<?= $producto['precio'] ?></p>
             </div>

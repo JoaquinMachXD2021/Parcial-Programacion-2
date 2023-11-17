@@ -2,6 +2,7 @@
 include('conexion.php');
 include('chequeo_sesion.php');
 include("barra_lateral.php");
+include("restringir_acceso.php");
 $usuarioingresado = $_SESSION['usuarioingresando'];
 $pagina = $_GET['pag'];
 $id = $_GET['categoria'];

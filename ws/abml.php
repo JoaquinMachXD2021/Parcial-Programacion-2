@@ -55,7 +55,7 @@
 
     //Actualizar producto
     if(isset($_GET["update"])){
-        if(!is_numeric($_GET["update"])) deliver_response(200,"El id debe ser un numero","");
+        if(!is_numeric($_GET["update"])) deliver_response(200,"El id debe ser un numero","1");
         $id = $_GET["update"];
         $query = "UPDATE Productos SET id=id";
 
@@ -74,14 +74,14 @@
         if (isset($_GET["precio"]))
         {
             $precio = $_GET["precio"];
-            if(!is_numeric($_GET["precio"])) deliver_response(200,"El precio debe ser un numero","");
+            if(!is_numeric($_GET["precio"])) deliver_response(200,"El precio debe ser un numero","2");
             $query .= ", precio = $precio";
         }
 
         if (isset($_GET["categoria"]))
         {
             $cat = $_GET["categoria"];
-            if(!is_numeric($cat)) deliver_response(200,"La categoria debe ser un numero","");
+            if(!is_numeric($cat)) deliver_response(200,"La categoria debe ser un numero","3");
             $query .= ", categoria_id = $cat";
         }
         
@@ -95,21 +95,40 @@
     if(isset($_GET["select"])){
         $id = $_GET["select"];
         if(!is_numeric($id)) deliver_response(200,"El id debe ser un numero","");
-        $query = "SELECT * FROM Productos WHERE id='$id'";
+        $query = "SELECT 
+            productos.id,
+            productos.nombre as nombre,
+            categoria_productos.nombre as categoria_nombre,
+            precio,
+            descripcion,
+            categoria_id
+        FROM productos INNER JOIN categoria_productos 
+        ON productos.categoria_id = categoria_productos.id WHERE productos.id='$id'";
 
         
         if($result = mysqli_query($conn, $query)){
             if(mysqli_num_rows($result) > 0)
                 deliver_response(200,'Listar OK!', mysqli_fetch_assoc($result));
             else 
-                deliver_response(200,'Producto inexistente','');
+                deliver_response(200,'Producto inexistente',array());
             
         } 
     }
 
     //Listar todo
     if(isset($_GET["list"])){
-        $query = "SELECT productos.id, productos.nombre as nombre, categoria_productos.nombre as categoria_nombre, precio, descripcion  FROM productos INNER JOIN categoria_productos ON productos.categoria_id = categoria_productos.id";
+        $max = 7;
+        $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+        $start = ($page -1) * $max;
+        $query = "SELECT productos.id, productos.nombre as nombre, categoria_productos.nombre as categoria_nombre, precio, descripcion
+        FROM productos INNER JOIN categoria_productos 
+        ON productos.categoria_id = categoria_productos.id";
+        
+        $nombre = $_GET["list"];
+        if($nombre != 'null') 
+            $query .= " WHERE productos.nombre LIKE '$nombre%'";
+
+        $query.= " ORDER BY productos.id ASC LIMIT $start, $max";
 
         $output = array();
         
@@ -122,7 +141,7 @@
             }
             
             else 
-                deliver_response(200,'No hay productos','');
+                deliver_response(200,'No hay productos',array());
             
         } 
     }

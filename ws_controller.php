@@ -4,17 +4,13 @@ class ws_controller
 { 
     public $usuario;
     public $clave;
-    function obtenerOfertas(){
 
-    }
-
-    function listarProductosConCategoria()
-    {
-        
+    private function getDatos($params){
+        //Tuvimos que suar curl para pasar datos por POST
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://192.168.1.10/parcial2/ws/abml.php?list=null',
+        CURLOPT_URL => "http://localhost/parcial2/ws/$params",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -33,7 +29,66 @@ class ws_controller
 
         curl_close($curl);
         
-        $productos=json_decode($response,true)["data"];
+        return json_decode($response,true);
+    }
+
+    function obtenerOfertas(){
+        $respuesta =$this->getDatos("menu.php")["data"]["categorias"];
+
+        return $respuesta;
+    }
+
+    function agregarProducto($nombre, $precio, $descripcion, $categoria)
+    {
+        $nombre = urlencode($nombre);
+        $precio = urlencode($precio);
+        $descripcion = urlencode($descripcion);
+        $categoria = urlencode($categoria);
+
+        $respuesta =$this->getDatos("abml.php?insert=1&nombre=$nombre&descripcion=$descripcion&precio=$precio&categoria=$categoria");
+
+        return $respuesta;
+    }
+
+    function borrarProducto($id)
+    {
+        $respuesta =$this->getDatos("abml.php?delete=$id");
+
+        return $respuesta;
+    }
+
+    function editarProducto($id, $nombre, $precio, $descripcion, $categoria)
+    {
+        $id = urlencode($id);
+        $nombre = urlencode($nombre);
+        $precio = urlencode($precio);
+        $descripcion = urlencode($descripcion);
+        $categoria = urlencode($categoria);
+        $respuesta =$this->getDatos("abml.php?update=$id&nombre=$nombre&descripcion=$descripcion&precio=$precio&categoria=$categoria");
+
+        return $respuesta;
+    }
+
+    function obtenerProducto($id)
+    {
+        
+        $productos = $this -> getDatos("abml.php?select=$id")["data"];
+
+        return $productos;
+    }
+
+    function listarProductos()
+    {
+        
+        $productos = $this -> getDatos('abml.php?list=null')["data"];
+
+        return $productos;
+    }
+
+    function buscarProductos($pagina,$nombre)
+    {
+        if(empty($nombre)) $nombre = "null";
+        $productos = $this -> getDatos("abml.php?list=$nombre&page=$pagina")["data"];
 
         return $productos;
     }

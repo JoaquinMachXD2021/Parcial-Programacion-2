@@ -13,6 +13,7 @@ if($nr == 1)
 {
     $_SESSION['usuarioingresando']=$correo;
     $_SESSION['clave']=$pass;
+    $_SESSION['rol']=mysqli_fetch_assoc($buscandousu)['rol'];
     header("Location: productos_tabla.php");
 }
 else
