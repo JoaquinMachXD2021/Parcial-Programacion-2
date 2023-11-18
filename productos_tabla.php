@@ -63,11 +63,11 @@ include("barra_lateral.php");
 					<th>Categoria</th>
 					<th>Acción</th>
 				</tr>
-
+				
 				<?php
+				var_dump ($productos);
 				if(count($productos) > 0)
 				foreach ($productos as $mostrar) {
-
 					echo "<tr>";
 					echo "<td>" . $mostrar['id'] . "</td>";
 					echo "<td>" . $mostrar['nombre'] . "</td>";
