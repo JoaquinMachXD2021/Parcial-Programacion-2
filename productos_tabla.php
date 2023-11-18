@@ -17,7 +17,7 @@ include("barra_lateral.php");
 		$ws_controller -> clave = $_SESSION['clave'];
 
 		$filasmax = 7;
-		$productos = array();
+		$productos = array(); 
 
 		if (isset($_GET['pag'])) {
 			$pagina = $_GET['pag'];
@@ -53,7 +53,7 @@ include("barra_lateral.php");
 						<?php echo "<a class='BotonesTeam5' href=\"productos_registrar.php?pag=$pagina\">Agregar producto</a>"; ?>
 					</div>
 				</div>
-			</form>
+				</form>
 			<table>
 				<tr>
 					<th>Id</th>
@@ -63,24 +63,23 @@ include("barra_lateral.php");
 					<th>Categoria</th>
 					<th>Acción</th>
 				</tr>
-				
-				<?php
-				var_dump ($productos);
-				if(count($productos) > 0)
-				foreach ($productos as $mostrar) {
-					echo "<tr>";
-					echo "<td>" . $mostrar['id'] . "</td>";
-					echo "<td>" . $mostrar['nombre'] . "</td>";
-					echo "<td>" . $mostrar['descripcion'] . "</td>";
-					echo "<td>" . $mostrar['precio'] . "</td>";
-					echo "<td>" . $mostrar['categoria_nombre'] . "</td>";
-					echo "<td style='width:24%'>
-			<a class='BotonesTeam1' href=\"productos_ver.php?id=$mostrar[id]&pag=$pagina\">&#x1F50D;</a> 
-			<a class='BotonesTeam2' href=\"productos_modificar.php?id=$mostrar[id]&pag=$pagina\">&#128397;</a> 
-			<a class='BotonesTeam3' href=\"productos_eliminar.php?id=$mostrar[id]&pag=$pagina\" onClick=\"return confirm('¿Estás seguro de eliminar el producto $mostrar[nombre]?')\">&#10006;</a>
-			</td>";
 
-				}
+				<?php
+				var_dump($productos);
+				if (count($productos) > 0)
+					foreach ($productos as $mostrar) {
+						echo "<tr>";
+						echo "<td>" . $mostrar['id'] . "</td>";
+						echo "<td>" . $mostrar['nombre'] . "</td>";
+						echo "<td>" . $mostrar['descripcion'] . "</td>";
+						echo "<td>" . $mostrar['precio'] . "</td>";
+						echo "<td>" . $mostrar['categoria_nombre'] . "</td>";
+						echo "<td style='width:24%'>
+				<a class='BotonesTeam1' href=\"productos_ver.php?id=$mostrar[id]&pag=$pagina\">&#x1F50D;</a> 
+				<a class='BotonesTeam2' href=\"productos_modificar.php?id=$mostrar[id]&pag=$pagina\">&#128397;</a> 
+				<a class='BotonesTeam3' href=\"productos_eliminar.php?id=$mostrar[id]&pag=$pagina\" onClick=\"return confirm('¿Estás seguro de eliminar el producto $mostrar[nombre]?')\">&#10006;</a>
+				</td>";
+					}
 
 				?>
 			</table>
