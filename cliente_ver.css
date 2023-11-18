@@ -1,34 +1,36 @@
+@font-face {
+    font-family: Orbitron;
+    src: url("fonts/Orbitron-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Eternal;
+    src: url("fonts/EternalUiBold-p7mZ1.ttf");
+}
+
 body {
-    background-color: #111; 
+    background-color: #111;
+    background-image: url("images/fondoClientesVer1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    place-content: center; 
     color: #fff; 
-    font-family: 'Arial', sans-serif;
-}
-
-header {
-    background-color: #222; 
-    padding: 20px;
-    text-align: center;
-}
-
-.navbar {
+    font-family: 'Orbitron','Arial', sans-serif;
+    padding: 0;
+    margin: 0;
     overflow: hidden;
-    background-color: #333; 
 }
 
-.navbar a {
-    float: left;
-    display: block;
-    color: #fff;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
 
 .navbar a:hover {
     background-color: #555;
 }
 
 .menu {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -36,41 +38,113 @@ header {
 }
 
 .item {
-    width: calc(25% - 20px);
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    width: 40vw;
+    height:fit-content;
     box-sizing: border-box;
-    background-color: #333;
-    padding: 20px;
-    margin: 10px;
+    /*background-color: #333;*/
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
+    font-size: 2vw;
+    
+    transition: visibility 0s, opacity 0.5s linear, transform 1s;
+}
+
+.selected > .priceContainer{
+    visibility: visible;
+    opacity: 1;
+}
+
+.selected > .title{
+    visibility: visible;
+    opacity: 1;
+}
+
+    
+
+
+.title{
+    position: absolute;
+    text-shadow: 3px 1px 4px rgba(255, 255, 255, 0.774);
+    left: 0; bottom: 0; right: 0;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.selected > .scanlines{
+    display: none;
+}
+
+.selected > .image{
+    filter: brightness(100%);
+}
+
+.image{
+    filter: brightness(0%);
+}
+
+.image, .scanlines{
+    display: inherit;
+    width: 40vw;
+}
+
+.scanlines{
+    background-image: url("images/scanlines1.png");
+    background-repeat: repeat;
+    background-size: 0.5vw;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    -webkit-mask-image: url("images/productos/1.png");
+    mask-image: url("images/productos/1.png");
+}
+
+.priceContainer{
+    
+    padding: 0.5vw;
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+    background-color: rgba(255, 0, 0, 0.7);
+    -webkit-clip-path: polygon(0 0, 100% 0%, 50% 100%, 0 50%);
+    clip-path: polygon(0 0, 70% 0%, 100% 30%, 100% 100%, 30% 100%,0% 70%);
+    visibility: hidden;
+    opacity: 0;
+    
+
+    transition: visibility 0s, opacity 0.5s ease-in-out;
 }
 
 .price {
-    color: rgb(136, 13, 13);
+    background-image: url("images/scanlines1.png");
+    background-repeat: repeat;
+    background-size: 0.2vw;
+    opacity: 0.5;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 2vw;
+    font-family: 'Eternal', 'Arial';
+    text-shadow: 3px 1px 4px rgba(255, 255, 255, 0.774);
+    padding: 1vw;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 50% 100%, 0 50%);
+    clip-path: polygon(0 0, 70% 0%, 100% 30%, 100% 100%, 30% 100%,0% 70%);
 }
 
+
 .item:hover {
-    background-color: #555;
     transform: scale(1.05);
-    transition: background-color 0.3s, transform 0.3s;
     cursor: pointer;
 }
 
 footer {
-    background-color: #222;
     padding: 10px;
     text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
-}
-
-img[alt="DOOM ERROR"] {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
 }

@@ -79,7 +79,6 @@ echo '<option value="'.$mostrarcat['id'].'">' .$mostrarcat['nombre']. '</option>
 	
 if(isset($_POST['btnregistrar']))
 {
-	 
 	$id 	= $_POST['txtid'];
 	$nombre 	= $_POST['txtnom'];
 	$descripcion	= $_POST['txtdes'];
