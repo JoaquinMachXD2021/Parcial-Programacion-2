@@ -86,10 +86,13 @@ body {
 }
 .title{
     position: absolute;
-    text-shadow: 3px 1px 4px rgba(255, 255, 255, 0.774);
     left: 0; bottom: 0; right: 0;
     opacity: 0;
     transition: inherit;
+}
+
+.title, footer > p{
+    text-shadow: 3px 1px 4px rgba(0, 0, 0, 0.774);
 }
 
 .selected > .image{

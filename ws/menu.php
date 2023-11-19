@@ -45,15 +45,14 @@
             );
 
             $y = 0;
-            $query = 'SELECT id, nombre, descripcion, precio FROM productos WHERE categoria_id = '.$row['id'];
+            $query = 'SELECT id, nombre, descripcion, precio FROM productos WHERE categoria_id = '.$row['id'].' ORDER BY id ASC';
 
             $result2 = mysqli_query($conn, $query);
             
-            while ($row = mysqli_fetch_array($result2,MYSQLI_ASSOC))
-            {
-                $output['categorias'][$i]['productos'][$y] = $row;
-                $y++;
+            if($row = mysqli_fetch_array($result2,MYSQLI_ASSOC)){
+                $output['categorias'][$i]['productos'][0] = $row;
             }
+            
             $i++;
         }
     }
