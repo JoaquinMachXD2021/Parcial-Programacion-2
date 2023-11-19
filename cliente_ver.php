@@ -27,7 +27,10 @@ $productos = $ws_controller->obtenerOfertas();
 <body>
     
     <nav id="close_sesion">
-        <a href="cerrar_sesion.php"> Cerrar sesión</a>
+        <a href="cerrar_sesion.php"> Cerrar sesión </a>
+    </nav>
+    <nav id="info">
+        <a href="informacion_ver.php"> Información </a>
     </nav>
 
     <div id="videoContainer">
