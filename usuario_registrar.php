@@ -1,4 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./usuario_inicio.css">
+    <title>Your Doom-themed Page</title>
+</head>
+<body>
 <?php
+session_start();
 include('conexion.php');
 
 $nombre = $_POST["txtnombre1"];
@@ -16,5 +26,7 @@ else
 {
 echo "<script> alert('Usuario registrado con exito: $nombre'); window.location='index.php' </script>";
 }
-
 ?>
+</body>
+
+</html>
