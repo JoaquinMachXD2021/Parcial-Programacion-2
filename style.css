@@ -1,5 +1,5 @@
 body {
-    background-image: url('./images/doomBackground.jpg');
+    background-image: url('#');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,7 +15,7 @@ color:black;
 }
 	/*Login*/
 .FormLogin {
-background-image: url('./images/doomLuna.jpg');
+background-image: url('#');
 background-size: cover; 
 background-position: center;
 background-repeat: no-repeat;
@@ -125,36 +125,6 @@ border-radius: 30px;
 }
 
 	/*Panel*/
-.BarraLateral {
-position: fixed;
-top: 0;
-left: 0;
-width: 200px;
-height: 100%;
-background-color: #aa0d0d;
-box-sizing: border-box;
-text-align:center;
-}
-.BarraLateral ul {
-list-style: none;
-padding: 0;
-margin-top:10%; 
-font-size:18px;			
-}
-
-.BarraLateral li 
-{
-text-align:left;
-padding: 12px 10px;
-background-color: rgba(0, 0, 0, .5);
-color:#d9dbe0;
-}
-
-.BarraLateral a 
-{
-color: white;
-text-decoration: none;
-}
 		
 .ContenedorPrincipal 
 {

@@ -1,0 +1,91 @@
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.ContenedorPrincipal {
+    padding: 20px;
+}
+
+.ContenedorTabla {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    color: #c11c1c;
+}
+
+.LogoPequeno {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: auto;
+}
+
+.BotonesTeam, .BotonesTeam1, .BotonesTeam2, .BotonesTeam3, .BotonesTeam4, .BotonesTeam5 {
+    text-align: center;
+    display: inline-block;
+    background: #b60202;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.BotonesTeam1, .BotonesTeam2, .BotonesTeam3 {
+    transition: transform 250ms;
+}
+
+.BotonesTeam2 {
+    background: #a71818;
+}
+
+.BotonesTeam3 {
+    background: #cf0505;
+}
+
+.BotonesTeam4, .BotonesTeam4:visited, .BotonesTeam4:active {
+    color: #ffffff;
+    pointer-events: none;
+}
+
+.BotonesTeam5 {
+    transition: transform 250ms;
+    background: #b61212;
+}
+
+.BotonesTeam1:hover, .BotonesTeam2:hover, .BotonesTeam3:hover, .BotonesTeam5:hover {
+    transform: translateY(-5px);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #c11c1c;
+    color: white;
+}
+
+.BotonesTeam4 {
+    margin-top: 20px;
+}
+
+/* Ajustes adicionales según sea necesario */

@@ -1,0 +1,48 @@
+.BarraLateral {
+    position: fixed;
+    top: 0;
+    left: -180px;
+    width: 200px;
+    height: 100%;
+    background-color: #880d0d;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    transition: left 0.3s ease;
+    overflow: hidden;
+}
+
+.BarraLateral:hover {
+    left: 0;
+}
+
+.LogoEmpresa {
+    text-align: left;
+    padding: 30px 10px 10px;
+}
+
+.LogoEmpresa img {
+    width: 180px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.BarraLateral ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10%;
+    font-size: 18px;
+}
+
+.BarraLateral li {
+    text-align: left;
+    padding: 12px 10px;
+    background-color: rgba(0, 0, 0, .5);
+    color: #d9dbe0;
+}
+
+.BarraLateral a {
+    color: white;
+    text-decoration: none;
+}
