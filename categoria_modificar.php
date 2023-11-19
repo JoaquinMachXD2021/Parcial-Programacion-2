@@ -14,7 +14,8 @@ $catnom = $mostrar['nombre'];
 ?>
 <html>
 <link rel="icon" href="./faviconDOOM.png" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="./categoria_modificar.css">
+<link rel="stylesheet" type="text/css" href="./categoria_modificar.css?t=1">
+<link rel="stylesheet" type="text/css" href="./productos_ver.css?t=1">
 <body>
 <div class="caja_popup2">
 <form class="contenedor_popup" method="POST">

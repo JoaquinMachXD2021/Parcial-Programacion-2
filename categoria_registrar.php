@@ -1,6 +1,4 @@
 <?php 
-include('conexion.php');
-include('chequeo_sesion.php');
 include("categoria_tabla.php");
 
 $pagina = $_GET['pag'];
@@ -8,9 +6,9 @@ $pagina = $_GET['pag'];
 <html>
 <head>    
 <title>Restaurante DOOM</title>
-<link rel="stylesheet" type="text/css" href="./categoria_registrar.css">
+<link rel="stylesheet" type="text/css" href="./categoria_registrar.css?t=1">
 <meta charset="UTF-8">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?t=1">
 <link rel="icon" href="./faviconDOOM.png" type="image/x-icon">
 </head>
 <body>

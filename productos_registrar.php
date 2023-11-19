@@ -4,6 +4,7 @@ $pagina = $_GET['pag'];
 ?>
 <html>
 <body>
+<link rel="stylesheet" type="text/css" href="./productos_ver.css?t=1">
 <div class="caja_popup2">
 <form class="contenedor_popup" method="POST">
 <table>

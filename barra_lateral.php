@@ -5,7 +5,7 @@
     <head>
         <title>Restaurante DOOM</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./barra_lateral.css">
+        <link rel="stylesheet" href="./barra_lateral.css?t=1">
         <link rel="icon" href="./faviconDOOM.png" type="image/x-icon">
         <script src="https://kit.fontawesome.com/cea831bcdf.js" crossorigin="anonymous"></script>
     </head>

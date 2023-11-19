@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="informacion_ver.css">
+    <link rel="stylesheet" href="informacion_ver.css?t=1">
     <link rel="icon" href="./faviconDOOM.png" type="image/x-icon">
     <title>Señores del inferno :P</title>
     

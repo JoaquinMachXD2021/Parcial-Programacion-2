@@ -5,10 +5,8 @@ include("restringir_acceso.php");
 include('ws_controller.php');
 include("barra_lateral.php");
 ?>
-<html>
 <title>Restaurante DOOM</title>
-<link rel="stylesheet" type="text/css" href="./productos_tabla.css">
-<body>
+<link rel="stylesheet" type="text/css" href="./productos_tabla.css?t=1">
 	<div class="ContenedorPrincipal">
 		<?php
 
@@ -132,6 +130,3 @@ include("barra_lateral.php");
 			?>
 		</div>
 	</div>
-</body>
-
-</html>

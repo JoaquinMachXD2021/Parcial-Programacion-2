@@ -6,7 +6,7 @@ include("restringir_acceso.php");
 ?>
 <html>
 	<title>Restaurante DOOM</title>
-	<link rel="stylesheet" type="text/css" href="./categoria_tabla.css">
+	<link rel="stylesheet" type="text/css" href="./categoria_tabla.css?t=1">
 	<body>
 		<div class="ContenedorPrincipal">	
 		<?php
