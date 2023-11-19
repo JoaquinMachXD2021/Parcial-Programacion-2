@@ -65,7 +65,7 @@ include("barra_lateral.php");
 				</tr>
 
 				<?php
-				var_dump($productos);
+				//var_dump($productos);
 				if (count($productos) > 0)
 					foreach ($productos as $mostrar) {
 						echo "<tr>";
