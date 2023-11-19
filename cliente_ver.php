@@ -20,10 +20,14 @@ $productos = $ws_controller->obtenerOfertas();
     <link rel="icon" href="./faviconDOOM.png" type="image/x-icon">
 </head>
 
-<body>
-    <nav>
-        <a href="cerrar_sesion.php"> Cerrar sesión</a>
+<tittle id="title">
         <a href="cerrar_sesion.php"><img src="./images/Restaurantelogo.png" alt="Texto alternativo"></a>
+</tittle>
+
+<body>
+    
+    <nav id="close_sesion">
+        <a href="cerrar_sesion.php"> Cerrar sesión</a>
     </nav>
 
     <div id="videoContainer">
