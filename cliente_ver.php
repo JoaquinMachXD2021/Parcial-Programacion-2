@@ -58,7 +58,7 @@ $productos = $ws_controller->obtenerOfertas();
         <p>Todos los derechos reservados &copy; 2023 Los Señores de la Cocina Infernal</p>
     </footer>
 
-    <script src="cliente_ver.js?t=2124245214"></script>
+    <script src="cliente_ver.js?t=21245214"></script>
 </body>
 
 </html>

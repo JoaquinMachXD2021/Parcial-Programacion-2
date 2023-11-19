@@ -2,7 +2,7 @@ items = document.getElementsByClassName("item");
 
 console.log(items);
 
-const percentageToMove = 75;
+const percentageToMove = 35;
 
 f = true;
 
@@ -14,7 +14,7 @@ Array.prototype.forEach.call(items, (element, index) =>  {
     element.onclick = () => {
         Array.prototype.forEach.call(items, (el2, i2) =>{
             el2.setAttribute("class", "item");
-            el2.style = "transform: translateX(" + ((i2 - index) * percentageToMove) + "%) scale(0.4);";
+            el2.style = "transform: translateX(" + ((i2 - index) * percentageToMove) + "vw) scale(0.4);";
             
         });
         actualIndex = index;
@@ -23,7 +23,7 @@ Array.prototype.forEach.call(items, (element, index) =>  {
         element.style = "transform: translateX(0)";
         element.setAttribute("class", "item selected");
     }
-    s = "transform: translateX(" + index * percentageToMove + "%)"
+    s = "transform: translateX(" + index * percentageToMove + "vw)"
     if (!f) s+= "scale(0.4);"
     s+= ";"
     f = false; 
@@ -35,7 +35,7 @@ function passSlide(){
     if(actualIndex >= items.length) actualIndex = 0;
     Array.prototype.forEach.call(items, (el2, i2) =>{
         el2.setAttribute("class", "item");
-        el2.style = "transform: translateX(" + ((i2 - actualIndex) * percentageToMove) + "%) scale(0.4);";
+        el2.style = "transform: translateX(" + ((i2 - actualIndex) * percentageToMove) + "vw) scale(0.4);";
         
     });
     clearTimeout(t);
