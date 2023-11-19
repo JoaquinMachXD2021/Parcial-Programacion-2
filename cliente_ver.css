@@ -24,6 +24,27 @@ body {
     overflow: hidden;
 }
 
+#videoContainer {
+    position: absolute;
+    z-index: -3;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+
+#video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    min-height: 50%;
+    min-width: 50%;
+}
+  
+
 
 .navbar a:hover {
     background-color: #555;
@@ -47,34 +68,28 @@ body {
     /*background-color: #333;*/
     text-align: center;
     border-radius: 8px;
-    font-size: 2vw;
+    font-size: 2.5vw;
     
-    transition: visibility 0s, opacity 0.5s linear, transform 1s;
+    transition: opacity 1s linear, transform 1s cubic-bezier(1,-0.07,.44,1.57), filter 1s linear;
 }
 
 .selected > .priceContainer{
-    visibility: visible;
     opacity: 1;
 }
 
 .selected > .title{
-    visibility: visible;
     opacity: 1;
 }
 
-    
-
-
+.selected > .scanlines{
+    opacity: 0;
+}
 .title{
     position: absolute;
     text-shadow: 3px 1px 4px rgba(255, 255, 255, 0.774);
     left: 0; bottom: 0; right: 0;
-    visibility: hidden;
     opacity: 0;
-}
-
-.selected > .scanlines{
-    display: none;
+    transition: inherit;
 }
 
 .selected > .image{
@@ -83,11 +98,8 @@ body {
 
 .image{
     filter: brightness(0%);
-}
-
-.image, .scanlines{
-    display: inherit;
     width: 40vw;
+    transition: inherit;
 }
 
 .scanlines{
@@ -100,9 +112,9 @@ body {
     right: 0;
     left: 0;
     bottom: 0;
-
-    -webkit-mask-image: url("images/productos/1.png");
-    mask-image: url("images/productos/1.png");
+    width: 40vw;
+    
+    transition: inherit;
 }
 
 .priceContainer{
@@ -114,11 +126,8 @@ body {
     background-color: rgba(255, 0, 0, 0.7);
     -webkit-clip-path: polygon(0 0, 100% 0%, 50% 100%, 0 50%);
     clip-path: polygon(0 0, 70% 0%, 100% 30%, 100% 100%, 30% 100%,0% 70%);
-    visibility: hidden;
     opacity: 0;
-    
-
-    transition: visibility 0s, opacity 0.5s ease-in-out;
+    transition: inherit;
 }
 
 .price {
@@ -137,7 +146,7 @@ body {
 
 
 .item:hover {
-    transform: scale(1.05);
+    transform: scale(1.5);
     cursor: pointer;
 }
 
