@@ -68,7 +68,6 @@ include("restringir_acceso.php");
 		echo "<td>".$mostrar['id']."</td>";
 		echo "<td>".$mostrar['nombre']."</td>"; 
 		echo "<td style='width:24%'>
-		<a class='BotonesTeam1' href=\"categoria_ver.php?categoria=$mostrar[id]&pag=$pagina\">&#x1F50D;</a> 
 		<a class='BotonesTeam2' href=\"categoria_modificar.php?categoria=$mostrar[id]&pag=$pagina\">&#128397;</a> 
 		<a class='BotonesTeam3' href=\"categoria_eliminar.php?categoria=$mostrar[id]&pag=$pagina\" onClick=\"return confirm('¿Estás seguro de eliminar la categoría $mostrar[nombre]?')\">&#10006;</a>
 		</td>";  
