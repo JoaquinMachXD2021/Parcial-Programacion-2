@@ -10,7 +10,7 @@ header('location: productos_tabla.php');
 <head>
 <title>Restaurante DOOM</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="./style.css">
 <link rel="icon" href="./faviconDOOM.png" type="image/x-icon">
 </head>
 <body>

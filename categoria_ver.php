@@ -13,29 +13,31 @@ while($mostrar = mysqli_fetch_array($querybuscar))
 	$catnom = $mostrar['nombre'];
 }
 ?>
-<html>
-<body>
-<div class="caja_popup2">
-<form class="contenedor_popup" method="POST">
-<table>
-<tr><th colspan="2">Ver categoría</th></tr>
-<tr> 
-<td><b>Id:</b></td>
-<td><?php echo $catid;?></td>
-</tr>
-			
-<tr> 
-<td><b>Nombre: </b></td>
-<td><?php echo $catnom;?></td>
-</tr>
-<tr>
-				
-<td colspan="2">
-<?php echo "<a class='BotonesTeam' href=\"categoria_tabla.php?pag=$pagina\">Regresar</a>";?>
-</td>
-</tr>
-</table>
-</form>
-</div>
-</body>
+<html lang="es">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./categoria_ver.css">
+	<body>
+		<div class="caja_popup2">
+			<form class="contenedor_popup" method="POST">
+				<table>
+				<tr><th colspan="2">Ver categoría</th></tr>
+					<tr> 
+						<td><b>Id:</b></td>
+						<td><?php echo $catid;?></td>
+					</tr>
+							
+					<tr> 
+						<td><b>Nombre: </b></td>
+						<td><?php echo $catnom;?></td>
+						</tr>
+					<tr>				
+						<td colspan="2">
+						<?php echo "<a class='BotonesTeam' href=\"categoria_tabla.php?pag=$pagina\">Regresar</a>";?>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
 </html>

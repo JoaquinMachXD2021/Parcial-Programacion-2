@@ -8,6 +8,7 @@ $pagina = $_GET['pag'];
 <html>
 <head>    
 <title>Restaurante DOOM</title>
+<link rel="stylesheet" type="text/css" href="./categoria_registrar.css">
 <meta charset="UTF-8">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="./faviconDOOM.png" type="image/x-icon">

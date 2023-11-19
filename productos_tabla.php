@@ -7,7 +7,7 @@ include("barra_lateral.php");
 ?>
 <html>
 <title>Restaurante DOOM</title>
-
+<link rel="stylesheet" type="text/css" href="./productos_tabla.css">
 <body>
 	<div class="ContenedorPrincipal">
 		<?php

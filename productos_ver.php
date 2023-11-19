@@ -13,7 +13,7 @@ $propre = $mostrar['precio'];
 $procat = $mostrar['categoria_nombre'];
 ?>
 <html>
-
+<link rel="stylesheet" href="./productos_ver.css">
 <body>
 	<div class="caja_popup2">
 		<form class="contenedor_popup" method="POST">
