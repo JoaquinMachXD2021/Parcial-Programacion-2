@@ -35,7 +35,7 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // Mostrar los datos en una tabla HTML
+        // Mostrar los datos en una tabla PHP
         echo "<table>";
         echo "<tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Precio</th></tr>";
         while ($row = $result->fetch_assoc()) {
